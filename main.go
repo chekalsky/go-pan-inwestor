@@ -94,11 +94,9 @@ func work() {
 		log.Println("Difference:", len(diff), diff)
 
 		for _, d := range diff {
-			if contains(actualCoins, d) {
-				log.Println("New coins found:", d, "Price:", allCoins[d].PriceUsd)
+			log.Println("New coins found:", d, "Price:", allCoins[d].PriceUsd)
 
-				sendMessage(fmt.Sprintf("Нашёл новые монеты: %s (%s). Стоимость: $%.6f", d, allCoins[d].Symbol, allCoins[d].PriceUsd))
-			}
+			sendMessage(fmt.Sprintf("Нашёл новые монеты: %s (%s). Стоимость: $%.4f\n\nhttps://coinmarketcap.com/currencies/%s/", d, allCoins[d].Symbol, allCoins[d].PriceUsd, d))
 		}
 	} else {
 		log.Println("No new coins")
@@ -111,41 +109,28 @@ func work() {
 
 func sendMessage(s string) {
 	msg := tgbotapi.NewMessage(Config.ChatId, s)
+	msg.DisableWebPagePreview = true
 
 	bot.Send(msg)
 }
 
-func contains(s []string, e string) bool {
-	for _, a := range s {
-		if a == e {
-			return true
-		}
-	}
-	return false
-}
-
+/**
+Find new elements in slice2 comparing to slice1
+*/
 func difference(slice1 []string, slice2 []string) []string {
 	var diff []string
 
-	// Loop two times, first to find slice1 strings not in slice2,
-	// second loop to find slice2 strings not in slice1
-	for i := 0; i < 2; i++ {
+	for _, s2 := range slice2 {
+		found := false
 		for _, s1 := range slice1 {
-			found := false
-			for _, s2 := range slice2 {
-				if s1 == s2 {
-					found = true
-					break
-				}
-			}
-			// String not found. We add it to return slice
-			if !found {
-				diff = append(diff, s1)
+			if s1 == s2 {
+				found = true
+				break
 			}
 		}
-		// Swap the slices, only if it was the first loop
-		if i == 0 {
-			slice1, slice2 = slice2, slice1
+
+		if !found {
+			diff = append(diff, s2)
 		}
 	}
 
