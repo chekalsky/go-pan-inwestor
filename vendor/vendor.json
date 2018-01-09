@@ -9,12 +9,6 @@
 			"revisionTime": "2017-06-26T11:06:00Z"
 		},
 		{
-			"checksumSHA1": "g/SuMA6CX//NFbx2DOQQei/DbW8=",
-			"path": "github.com/chekalskiy/go-coinmarketcap",
-			"revision": "ab4e75de6ef0e73480f583a136587d11655924a7",
-			"revisionTime": "2017-12-17T15:09:21Z"
-		},
-		{
 			"checksumSHA1": "l/bQAsByacw5YZSY/2KQGUfUT08=",
 			"path": "github.com/go-telegram-bot-api/telegram-bot-api",
 			"revision": "2022d04b94f50056a09962b1ac81cdd821d20a55",
@@ -31,6 +25,12 @@
 			"path": "github.com/jinzhu/configor",
 			"revision": "6ecfe629230f24c2e92c7894c6ab21b83b757a39",
 			"revisionTime": "2017-10-24T08:10:03Z"
+		},
+		{
+			"checksumSHA1": "sKsOabpe9eQddM88rwdrTrexvDs=",
+			"path": "github.com/miguelmota/go-coinmarketcap",
+			"revision": "0b686f8af758dac29d77773651d1297c2b820572",
+			"revisionTime": "2017-12-19T02:14:48Z"
 		},
 		{
 			"checksumSHA1": "nzROOnBgMd8I+TknYTTgIAnvW70=",

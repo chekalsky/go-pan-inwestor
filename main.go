@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/chekalskiy/go-coinmarketcap"
+	"github.com/miguelmota/go-coinmarketcap"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/jinzhu/configor"
 	"github.com/nanobox-io/golang-scribble"
